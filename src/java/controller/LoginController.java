@@ -22,16 +22,15 @@ public class LoginController extends HttpServlet{
         String pass = req.getParameter("password");
         
         if(user.equals("jawuyn") && pass.equals("16042023")){
-            resp.sendRedirect("index.html");
+            resp.sendRedirect("home.html");
         } else{
-            req.setAttribute("error", "Bakaaaaa!!! Đồ tòy:<<");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
+            resp.sendRedirect("index.html");
         }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("login.jsp").forward(req, resp);
+        resp.sendRedirect("index.html");
     }
     
 }
