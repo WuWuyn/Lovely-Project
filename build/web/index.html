@@ -19,13 +19,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <h2>Hehe Login vào đi vợ iu</h2>
         <div class="container" id="container">
             <div class="form-container sign-in-container">
-                <form action="login" method="post">
+                <form id="login-form" onsubmit="handleLogin(event)">
                     <h1>Sign in</h1>
-                    <input type="text" name="username" placeholder="Username" />
-                    <input type="password" name="password" placeholder="Password" />
-                    <button>Sign In</button>
-                    <br>
-                    
+                    <input type="text" id="username" name="username" placeholder="Username" />
+                    <input type="password" id="password" name="password" placeholder="Password" />
+                    <button type="submit">Sign In</button>
+                    <p id="message"></p>
                 </form>
             </div>
             <div class="overlay-container">
@@ -39,6 +38,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </div>
         </div>
 
+        <script>
+            function handleLogin(event) {
+                event.preventDefault(); // Ngăn chặn gửi biểu mẫu mặc định
+
+                // Lấy giá trị từ các trường nhập liệu
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                const messageElement = document.getElementById('message');
+
+                // Dữ liệu tĩnh để kiểm tra (thay thế bằng backend trong thực tế)
+                const validUsername = "jawuyn";
+                const validPassword = "16042023";
+
+                // Kiểm tra thông tin đăng nhập
+                if (username === validUsername && password === validPassword) {
+                    messageElement.style.color = 'green';
+                    messageElement.textContent = 'Hehe, babe của tớ giọi cá:>';
+                    // Chuyển hướng hoặc thực hiện hành động tiếp theo
+                    setTimeout(() => {
+                        window.location.href = 'home.html'; // Thay bằng URL trang đích
+                    }, 1000);
+                } else {
+                    messageElement.style.color = 'red';
+                    messageElement.textContent = 'Bakaaaaa!!! Đồ tòy:<';
+                }
+            }
+        </script>
     </body>
 </html>
 
